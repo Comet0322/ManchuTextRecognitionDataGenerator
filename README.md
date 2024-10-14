@@ -17,10 +17,6 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-Afterwards, you can use `trdg` from the CLI. I recommend using a virtualenv instead of installing with `sudo`.
-
-If you want to add another language, you can clone the repository instead. Simply run `pip install -r requirements.txt`
-
 ### Basic (CLI)
 
 `trdg -l mc --word_split -c 1000 -w 5 -f 64`
@@ -72,48 +68,11 @@ Maybe you want another background? Add `-b` to define one of the three available
 
 When using image background (3). A image from the images/ folder will be randomly selected and the text will be written on it.
 
-### Handwritten
-
-Or maybe you are working on an OCR for handwritten text? Add `-hw`! (Experimental)
-
-![18](samples/18.jpg "0")
-![19](samples/19.jpg "1")
-![20](samples/20.jpg "2")
-![21](samples/21.jpg "3")
-![22](samples/22.jpg "4")
-
-It uses a Tensorflow model trained using [this excellent project](https://github.com/Grzego/handwriting-generation) by Grzego.
-
-**The project does not require TensorFlow to run if you aren't using this feature**
-
 ### Dictionary
 
 The text is chosen at random in a dictionary file (that can be found in the *dicts* folder) and drawn on a white background made with Gaussian noise. The resulting image is saved as [text]\_[index].jpg
 
 There are a lot of parameters that you can tune to get the results you want, therefore I recommend checking out `trdg -h` for more information.
-
-## Create images with Chinese text
-
-It is simple! Just do `trdg -l cn -c 1000 -w 5`!
-
-Generated texts come both in simplified and traditional Chinese scripts.
-
-Traditional:
-
-![27](samples/27.jpg "0")
-
-Simplified:
-
-![28](samples/28.jpg "1")
-
-## Create images with Japanese text 
-
-It is simple! Just do `trdg -l ja -c 1000 -w 5`!
-
-Output 
-
-![29](samples/29.jpg "2")
-
 
 ## Add new fonts
 
@@ -138,21 +97,6 @@ If you want to add a new non-latin language, the amount of work is minimal.
 5. Run the tool as you normally would but add `-l` with your two-letters code
 
 It only supports .ttf for now.
-
-## Benchmarks
-
-Number of images generated per second.
-
-- Intel Core i7-4710HQ @ 2.50Ghz + SSD (-c 1000 -w 1)
-    - `-t 1` : 363 img/s
-    - `-t 2` : 694 img/s
-    - `-t 4` : 1300 img/s
-    - `-t 8` : 1500 img/s
-- AMD Ryzen 7 1700 @ 4.0Ghz + SSD (-c 1000 -w 1)
-    - `-t 1` : 558 img/s
-    - `-t 2` : 1045 img/s
-    - `-t 4` : 2107 img/s
-    - `-t 8` : 3297 img/s
 
 ## Contributing
 
