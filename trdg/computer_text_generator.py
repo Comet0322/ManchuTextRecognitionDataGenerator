@@ -1,8 +1,8 @@
 import random as rnd
 from typing import Tuple
-from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont
 
-from trdg.utils import get_text_width, get_text_height
+from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont
+from trdg.utils import get_text_height, get_text_width
 
 # Thai Unicode reference: https://jrgraphix.net/r/Unicode/0E00-0E7F
 TH_TONE_MARKS = [
@@ -139,6 +139,7 @@ def _generate_horizontal_text(
             font=image_font,
             stroke_width=stroke_width,
             stroke_fill=stroke_fill,
+            language="ar-SA",
         )
         txt_mask_draw.text(
             (sum(piece_widths[0:i]) + i * character_spacing * int(not word_split), 0),
@@ -147,6 +148,7 @@ def _generate_horizontal_text(
             font=image_font,
             stroke_width=stroke_width,
             stroke_fill=stroke_fill,
+            language="ar-SA",
         )
 
     if fit:
