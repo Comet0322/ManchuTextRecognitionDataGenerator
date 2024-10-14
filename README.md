@@ -31,84 +31,18 @@ You get 1,000 randomly generated images with random text on them like:
 
 By default, they will be generated to `out/` in the current working directory.
 
-### Text skewing
-
-What if you want random skewing? Add `-k` and `-rk` (`trdg -c 1000 -w 5 -f 64 -k 5 -rk`)
-
-![6](samples/6.jpg "6")
-![7](samples/7.jpg "7")
-![8](samples/8.jpg "8")
-![9](samples/9.jpg "9")
-![10](samples/10.jpg "10")
-
-### Text distortion
-You can also add distortion to the generated text with `-d` and `-do`
-
-![23](samples/24.jpg "0")
-![24](samples/25.jpg "1")
-![25](samples/26.jpg "2")
-
-### Text blurring
-
-But scanned document usually aren't that clear are they? Add `-bl` and `-rbl` to get gaussian blur on the generated image with user-defined radius (here 0, 1, 2, 4):
-
-![11](samples/11.jpg "0")
-![12](samples/12.jpg "1")
-![13](samples/13.jpg "2")
-![14](samples/14.jpg "4")
-
 ### Background
 
-Maybe you want another background? Add `-b` to define one of the three available backgrounds: gaussian noise (0), plain white (1), quasicrystal (2) or image (3).
+Maybe you want another background? Add `-b` and A image from the images/ folder will be randomly selected and the text will be written on it. 
 
-![15](samples/15.jpg "0")
-![16](samples/16.jpg "1")
-![17](samples/17.jpg "2")
-![23](samples/23.jpg "3")
-
-When using image background (3). A image from the images/ folder will be randomly selected and the text will be written on it.
+![6](samples/6.jpg "0")
+![7](samples/7.jpg "1")
+![8](samples/8.jpg "2")
+![9](samples/9.jpg "3")
+![10](samples/10.jpg "4")
 
 ### Dictionary
 
 The text is chosen at random in a dictionary file (that can be found in the *dicts* folder) and drawn on a white background made with Gaussian noise. The resulting image is saved as [text]\_[index].jpg
 
 There are a lot of parameters that you can tune to get the results you want, therefore I recommend checking out `trdg -h` for more information.
-
-## Add new fonts
-
-The script picks a font at random from the *fonts* directory.
-
-| Directory | Languages |
-|:----|:-----|
-| fonts/latin | English, French, Spanish, German |
-| fonts/cn | Chinese |
-| fonts/ko | Korean |
-| fonts/ja | Japanese |
-| fonts/th | Thai |
-
-Simply add/remove fonts until you get the desired output.
-
-If you want to add a new non-latin language, the amount of work is minimal.
-
-1. Create a new folder with your language [two-letters code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-2. Add a .ttf font in it
-3. Edit `run.py` to add an if statement in `load_fonts()`
-4. Add a text file in `dicts` with the same two-letters code
-5. Run the tool as you normally would but add `-l` with your two-letters code
-
-It only supports .ttf for now.
-
-## Contributing
-
-1. Create an issue describing the feature you'll be working on
-2. Code said feature
-3. Create a pull request
-
-## Feature request & issues
-
-If anything is missing, unclear, or simply not working, open an issue on the repository.
-
-## What is left to do?
-- Better background generation
-- Better handwritten text generation
-- More customization parameters (mostly regarding background)
