@@ -1,9 +1,9 @@
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
-
 # To use a consistent encoding
 from codecs import open
 from os import path
+
+from setuptools import find_packages, setup
 
 here = path.abspath(path.dirname(__file__))
 
@@ -45,7 +45,7 @@ setup(
         "tqdm>=4.23.0",
         "wikipedia>=1.4.0",
         "diffimg==0.2.3",
-        "arabic-reshaper==2.1.3",
+        "arabic-reshaper==2.1.4",
         "python-bidi==0.4.2",
     ],
     entry_points={
